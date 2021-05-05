@@ -8,7 +8,7 @@
               Cotizador de envíos
             </h3>
           </div>
-          <template v-if="options.length > 0">
+          <template v-if="optionsOrder.length > 0">
             <div class="text-center detail">
               <h6 class="h6 text-center">
                 Código postal: <strong>"{{ postalCode }}"</strong>
@@ -54,12 +54,11 @@
             </form>
           </template>
           <div class="options">
-              {{ options }}
-              <quote-option
-                v-for="(option, index) in optionsOrder"
-                :key="`option-${index}`"
-                :value="option"
-              /> 
+            <quote-option
+              v-for="(option, index) in optionsOrder"
+              :key="`option-${index}`"
+              :value="option"
+            /> 
           </div>
         </div>
       </div>
@@ -90,11 +89,9 @@ export default {
 
   computed:{
     optionsOrder(){
-      
       /**
        * Code
       */
-
       return this.options
     },
     txtSubmit(){
